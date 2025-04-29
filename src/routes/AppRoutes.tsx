@@ -1,9 +1,8 @@
-// src/routes/AppRoutes.tsx
-import React from 'react';
+
 import { Routes, Route, Navigate } from 'react-router-dom';
 import OOPSection from '../pages/OOPSection';
 import Layout from '../components/Layout';
-// import SQLSection from '../pages/SQLSection';
+import SQLSection from '../pages/SQLSection';
 // import CRUDSection from '../pages/CRUDSection';
 
 export default function AppRoutes() {
@@ -13,8 +12,8 @@ export default function AppRoutes() {
         <Route index element={<Navigate to="/oop" replace />} />
 
         <Route path="oop" element={<OOPSection />} />
-        {/* <Route path="sql" element={<SQLSection />} />
-        <Route path="crud" element={<CRUDSection />} /> */}
+        <Route path="sql" element={<SQLSection />} />
+        {/* <Route path="crud" element={<CRUDSection />} />  */}
       </Route>
     </Routes>
   );
