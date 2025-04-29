@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import Card from '../components/Card';
-import Modal from '../components/Modal';
-import ArticleForm from '../components/ArticleForm';
+import Card from '../components/shared/Card';
+import Modal from '../components/articles/Modal';
+import ArticleForm from '../components/articles/ArticleForm';
 import { Article } from '../types/Article';
 import { getArticles, createArticle, updateArticle, deleteArticle } from '../api/articles';
-import ArticlesTable from '../components/ArticlesTable';
+import ArticlesTable from '../components/articles/ArticlesTable';
 
 export default function CRUDSection() {
   const qc = useQueryClient();
