@@ -1,5 +1,4 @@
-import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import {  Outlet } from 'react-router-dom';
 import { NavBar } from './NavBar';
 
 export default function Layout() {

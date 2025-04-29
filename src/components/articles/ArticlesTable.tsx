@@ -1,5 +1,5 @@
 import { CiEdit } from 'react-icons/ci';
-import { Article } from '../types/Article';
+import { Article } from '../../types/Article';
 import { MdDelete } from 'react-icons/md';
 
 interface ArticlesTableProps {

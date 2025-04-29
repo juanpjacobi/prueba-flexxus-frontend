@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Article } from '../types/Article';
+import { Article } from '../../types/Article';
 
 const articleSchema = z.object({
   name: z.string().min(1, 'Nombre es obligatorio'),
