@@ -31,15 +31,12 @@ export const reports: ReportMeta[] = [
   { key: 'sumaSueldosPuesto', title: 'Suma de sueldos por puesto', path: '/api/reports/suma-sueldos/por-puesto' },
 ];
 
-/**
- * Fetch any report by key.
- */
+
 export async function fetchReport(key: ReportKey): Promise<any[]> {
   const meta = reports.find(r => r.key === key);
   if (!meta) throw new Error('Reporte desconocido');
   const res = await fetch(meta.path);
   if (!res.ok) throw new Error(`Error al obtener reporte: ${res.status}`);
   const json = await res.json();
-  // asumimos que es un array de objetos
   return json;
 }
