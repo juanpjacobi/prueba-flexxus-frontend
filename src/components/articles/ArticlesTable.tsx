@@ -27,7 +27,7 @@ export default function ArticlesTable({ articles, onEdit, onDelete }: ArticlesTa
             <td className="px-4 py-2 border">{a.id}</td>
             <td className="px-4 py-2 border">{a.name}</td>
             <td className="px-4 py-2 border">{a.brand}</td>
-            <td className="px-4 py-2 border">{new Date(a.dateMod).toLocaleString()}</td>
+            <td className="px-4 py-2 border">{new Date(a.updatedAt).toLocaleString()}</td>
             <td className="px-4 py-2 border">{a.active ? 'Activo' : 'Inactivo'}</td>
             <td className="px-4 py-2 border space-x-2 ">
                 <div className='flex justify-around'>
