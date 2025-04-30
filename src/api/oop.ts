@@ -1,5 +1,7 @@
+import { authFetch } from "../utils/authFetch";
+
 export async function fetchOddNumbers(): Promise<number[]> {
-  const res = await fetch('/api/odd-numbers');
+  const res = await authFetch('/api/odd-numbers');
   if (!res.ok) throw new Error('Error al obtener números impares');
   const json = await res.json();
   return json.oddNumbers;
@@ -10,7 +12,7 @@ export interface SueldosResponse {
   lineas: string[];
 }
 export async function postSueldos(sueldos: number[]): Promise<SueldosResponse> {
-  const res = await fetch('/api/sueldos', {
+  const res = await authFetch('/api/sueldos', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ sueldos }),
@@ -35,7 +37,7 @@ export async function postAlumno(
   nombre: string,
   edad: number
 ): Promise<AlumnoResponse> {
-  const res = await fetch('/api/alumnos', {
+  const res = await authFetch('/api/alumnos', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ nombre, edad }),

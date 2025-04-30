@@ -1,3 +1,5 @@
+import { authFetch } from "../utils/authFetch";
+
 export type ReportKey =
   | 'ordenDesc'
   | 'soporte'
@@ -35,7 +37,7 @@ export const reports: ReportMeta[] = [
 export async function fetchReport(key: ReportKey): Promise<any[]> {
   const meta = reports.find(r => r.key === key);
   if (!meta) throw new Error('Reporte desconocido');
-  const res = await fetch(meta.path);
+  const res = await authFetch(meta.path);
   if (!res.ok) throw new Error(`Error al obtener reporte: ${res.status}`);
   const json = await res.json();
   return json;
