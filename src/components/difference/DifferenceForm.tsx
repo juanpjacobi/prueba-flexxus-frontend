@@ -3,8 +3,8 @@ import { useMutation } from '@tanstack/react-query';
 import { DifferenceResponse, postDifference } from '../../api/difference';
 
 export default function DifferenceForm() {
-  const [aX, setAX] = useState('');
-  const [aY, setAY] = useState('');
+  const [aX, setAX] = useState('n, bro, c, l');
+  const [aY, setAY] = useState('d, n, l, bro, g');
   const [error, setError] = useState<string | null>(null);
 
   const diffMutation = useMutation<DifferenceResponse, Error, { x: any[]; y: any[] }>({
