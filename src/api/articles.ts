@@ -7,9 +7,30 @@ async function handleResponse<T>(res: Response): Promise<T> {
   return json;
 }
 
-export const getArticles = (): Promise<Article[]> =>
-  authFetch('/api/articles')
+export interface ArticleQueryFilters {
+  name?: string;
+  brand?: string;
+  active?: boolean;
+  updatedFrom?: string; 
+  updatedTo?: string;
+}
+
+export const getArticles = (
+  filters: ArticleQueryFilters = {}
+): Promise<Article[]> => {
+  const params = new URLSearchParams();
+  if (filters.name) params.set('name', filters.name);
+  if (filters.brand) params.set('brand', filters.brand);
+  if (filters.active !== undefined) params.set('active', String(filters.active));
+  if (filters.updatedFrom) params.set('updatedFrom', filters.updatedFrom);
+  if (filters.updatedTo) params.set('updatedTo', filters.updatedTo);
+
+  const query = params.toString() ? `?${params.toString()}` : '';
+  return authFetch(`/api/articles${query}`)
     .then(res => handleResponse<Article[]>(res));
+};
+
+
 
 export const createArticle = (
   data: Pick<Article, 'name' | 'brand'>
