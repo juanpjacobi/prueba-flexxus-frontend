@@ -1,11 +1,8 @@
-export async function authFetch(
-    input: RequestInfo,
-    init?: RequestInit
-  ): Promise<Response> {
-    const token = localStorage.getItem('token');
-    const headers = {
-      ...(init?.headers as Record<string, string>),
-      Authorization: token ? `Bearer ${token}` : '',
-    };
-    return fetch(input, { ...init, headers });
-  }
+export const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
+
+export function authFetch(input: RequestInfo, init?: RequestInit) {
+  const url = typeof input === 'string' && input.startsWith('/api')
+    ? `${API_BASE}${input}`
+    : String(input);
+  return fetch(url, init);
+}
