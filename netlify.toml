@@ -3,9 +3,7 @@
   publish = "dist"
 
 [[redirects]]
-  from = "/*"
-  to = "/"
-  status = 200
+
   from = "/api/*"
   to = "https://prueba-flexxus-backend-production.up.railway.app/api/:splat"
   status = 200
